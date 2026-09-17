@@ -1,7 +1,5 @@
 ## 1. Static Pods
 
-### What is a Static Pod?
-
 A **Static Pod** is a Pod managed directly by the **kubelet** on a specific node, without being managed by the Kubernetes scheduler.
 
 ```bash
@@ -13,8 +11,7 @@ Static Pod
 ```
 
 ### Important directory
-
-```
+```bash
 /etc/kubernetes/manifests
 ```
 The kubelet watches this directory and creates/maintains the Pods defined there.
