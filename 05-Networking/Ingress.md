@@ -1,4 +1,4 @@
-Ingress is a Kubernetes API object that manages **external access** to services inside a Kubernetes cluster, typically HTTP and HTTPS traffic.
+**Ingress** is a Kubernetes resource that manages **HTTP/HTTPS traffic coming from outside the cluster** and routes it to different Services.
 
 Instead of exposing every application with a separate LoadBalancer or NodePort, Ingress provides a **single entry point** to route traffic to multiple services.
 
@@ -20,7 +20,7 @@ Pods
 ```
 ## Why Use Ingress?
 
-- Expose multiple applications using one IP address.
+- Expose multiple applications using one IP address (Single Endpoint).
 - Perform host-based routing (e.g., app1.example.com, app2.example.com).
 - Perform path-based routing (e.g., /api, /admin).
 - Enable SSL/TLS termination.
