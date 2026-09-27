@@ -2,7 +2,7 @@
 ### Simple example
 
 Imagine you have node:
-```
+```bash
 Node 1 → CPU
 Node 2 → GPU
 Node 3 → LPU
@@ -11,12 +11,12 @@ Node 3 → LPU
 You want your AI application to run **only on the GPU node**.
 
 You label the node:
-```
+```bash
 kubectl label nodes node2 hardware=gpu
 ```
 
 Then use **Node Affinity** in your Pod:
-```
+```bash
 Pod 🧠
   │
   │ "I need hardware=gpu"
@@ -38,12 +38,12 @@ Common use cases:
 # How to use it
 
 ### Step 1: Label a Node
-```
+```bash
 kubectl label nodes node1 hardware=gpu
 ```
 
 Check:
-```
+```bash
 kubectl get nodes --show-labels
 ```
 
@@ -87,7 +87,7 @@ It means:
 ### 1. `requiredDuringSchedulingIgnoredDuringExecution`
 
 **Must match.**
-```
+```bash
 Pod → Node with matching label ✅
 Pod → Node without matching label ❌
 ```
@@ -98,7 +98,7 @@ If no matching node exists, the Pod stays **Pending**.
 ### 2. `preferredDuringSchedulingIgnoredDuringExecution`
 
 **Prefer the matching Node, but it's not mandatory.**
-```
+```bash
 Matching Node available → use it 👍
 No matching Node → use another Node ✅
 ```

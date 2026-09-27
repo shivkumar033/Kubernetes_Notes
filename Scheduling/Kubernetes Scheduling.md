@@ -19,7 +19,7 @@ The kubelet watches this directory and creates/maintains the Pods defined there.
 ### Example
 In Minikube, control-plane Pods such as:
 
-```
+```bash
 etcd-minikube
 kube-apiserver-minikube
 kube-controller-manager-minikube
@@ -28,7 +28,7 @@ kube-scheduler-minikube
 are typically Static Pods.
 
 ### Useful command
-```
+```bash
 kubectl get pods -n kube-system
 ```
 ### Remember
@@ -40,14 +40,14 @@ kubectl get pods -n kube-system
 ### What is Manual Scheduling?
 
 Normally:
-```
+```bash
 Pod → kube-scheduler → Node
 ```
 
 With manual scheduling, you tell Kubernetes **exactly which node** should run the Pod.
 
 ### YAML
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -60,7 +60,7 @@ spec:
 ```
 
 Here:
-```
+```bash
 nodeName: worker-node-1
 ```
 
@@ -77,21 +77,21 @@ means:
 Labels are **key-value pairs attached to Kubernetes objects**.
 
 Example:
-```
+```bash
 labels:
   app: frontend
   tier: web
 ```
 
 Think:
-```
+```bash
 Pod
  ├── app = frontend
  └── tier = web
 ```
 
 ### See labels
-```
+```bash
 kubectl get pods --show-labels
 ```
 
@@ -102,7 +102,7 @@ kubectl get pods --show-labels
 A selector is used to **find Kubernetes objects based on their labels**.
 
 Example:
-```
+```bash
 kubectl get pods --selector tier=web
 ```
 
@@ -111,12 +111,12 @@ This means:
 ### Common example
 
 A Service uses a selector to find which Pods should receive traffic:
-```
+```bash
 selector:
   app: frontend
 ```
 
-```
+```bash
 Service
    ↓ selector: app=frontend
    ↓
@@ -135,13 +135,13 @@ Pod 3 → app=backend ❌
 ### Labels
 
 Used to **identify and select** resources.
-```
+```bash
 labels:
   app: frontend
 ```
 
 You can use:
-```
+```bash
 kubectl get pods -l app=frontend
 ```
 
@@ -150,7 +150,7 @@ kubectl get pods -l app=frontend
 Used to store **additional information/metadata** that Kubernetes doesn't normally use for selecting objects.
 
 Example:
-```
+```bash
 annotations:
   description: "Frontend application"
   owner: "development-team"
